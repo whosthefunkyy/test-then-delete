@@ -24,7 +24,7 @@ jobs:
       runs-on: ubuntu-latest
 
       steps:
-        - name: Copy repo
+        - name: Copy Repo
           uses: actions/checkout@v4
 
         - name: LOGIN into docker hub!
