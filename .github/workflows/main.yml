@@ -27,7 +27,7 @@ jobs:
 
       - name: Run test
         run: go test -v ./...
-      - name: Print prod name 
+      - name: Print produc name 
         run: echo $APP_ENV 
   
   docker:
