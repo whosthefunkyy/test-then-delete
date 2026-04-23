@@ -31,6 +31,10 @@ module "ec2" {
   project_name = "devops-proj"
 }
 resource "aws_eip" "static_ip" {
-  instance = module.ec2.instance_id
-  domain   = "vpc"
+  domain = "vpc"
+}
+
+resource "aws_eip_association" "eip_assoc" {
+  instance_id   = module.ec2.instance_id
+  allocation_id = aws_eip.static_ip.id
 }
