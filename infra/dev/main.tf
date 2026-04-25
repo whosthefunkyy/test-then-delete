@@ -6,12 +6,6 @@ terraform {
       version = "~> 6.0"
     }
   }
-  backend "s3" {
-    bucket         = "devops-popa-2026"
-    key            = "terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "terraform-lock"
-  }
 }
 
 
@@ -20,10 +14,10 @@ provider "aws" {
 }
 
 module "vpc" {
-  source = "./modules/vpc"
+  source = "../modules/vpc"
 }
 module "ec2" {
-  source = "./modules/ec2"
+  source = "../modules/ec2"
   vpc_id = module.vpc.vpc_id
   subnet_id = module.vpc.public_subnet_id
   instance_type = "t2.micro"
