@@ -7,7 +7,7 @@ RUN go mod download || true
 
 COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux go build -o app
+RUN CGO_ENABLED=0 GOOS=linux go build -o app ./cmd
 FROM scratch
 
 COPY --from=builder /app/app .
